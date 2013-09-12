@@ -52,9 +52,23 @@ In your Phonegap project:
 	            <intent-filter>
 	                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 	                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-	                <category android:name="com.example.hello" /> //<!--Your package name-->
+	                <category android:name="com.example.hello" /> <!--Your package name-->
 	            </intent-filter>
 	        </receiver>
 	        <service android:name="io.backbeam.GCMIntentService" />
 	    </application>
 	</manifest>
+	
+If you want to get internet connection don't forget to change the line in file in your phonegap project /platforms/android/res/xml/config.xml
+
+	Default:<access origin="127.0.0.1*" />
+	Your change:<access origin="*" />
+	
+	And in this file you must add our plugin:
+	<feature name="PushBackbeamPlugin">
+  		<param name="android-package" value="com.example.hello.PushBackbeamPlugin" /><!--Your package name-->
+	</feature>
+	
+
+
+
