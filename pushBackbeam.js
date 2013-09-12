@@ -3,7 +3,7 @@ var pushBackbeamPlugin = {
 		cordova.exec(
 			successCallback, // success callback function
 			errorCallback, // error callback function
-			'PushBackbeamPlugin', // mapped to our native Java class called "CalendarPlugin"
+			'PushBackbeamPlugin', // mapped to our native Java class called "PushBackbeamPlugin"
 			'subscribeDeviceToChannelsBackbeam', // with this action name
 			[{
 				"chanel": chanel,
@@ -14,7 +14,7 @@ var pushBackbeamPlugin = {
 		cordova.exec(
 			successCallback, // success callback function
 			errorCallback, // error callback function
-			'PushBackbeamPlugin', // mapped to our native Java class called "CalendarPlugin"
+			'PushBackbeamPlugin', // mapped to our native Java class called "PushBackbeamPlugin"
 			'unsubscribeDeviceFromChannelsBackbeam', // with this action name
 			[{
 				"chanel": chanel,
