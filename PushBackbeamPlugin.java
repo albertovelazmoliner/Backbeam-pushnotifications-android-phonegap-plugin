@@ -18,7 +18,7 @@ public class PushBackbeamPlugin extends CordovaPlugin {
 				JSONObject message = args.getJSONObject(0);
 				String chanelUser = message.optString("chanel");
 				final String chanel_user = "user_"+chanelUser;
-				System.out.println("Este es el chanel_user: "+chanel_user);
+				System.out.println("This is the chanel_user: "+chanel_user);
 				cordova.getThreadPool().execute(new Runnable() {
 					public void run(){
 						
@@ -39,6 +39,7 @@ public class PushBackbeamPlugin extends CordovaPlugin {
 				JSONObject message = args.getJSONObject(0);
 				String chanelUser = message.optString("chanel");
 				final String chanel_user = "user_"+chanelUser;
+				System.out.println("This is the chanel_user: "+chanel_user);
 				cordova.getThreadPool().execute(new Runnable() {
 					public void run(){
 						
