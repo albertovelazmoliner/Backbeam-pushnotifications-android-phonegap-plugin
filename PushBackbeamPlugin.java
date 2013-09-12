@@ -1,4 +1,4 @@
-package com.bearaventure.weplai;
+package com.example.hello; //Your package name
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
