@@ -17,8 +17,6 @@ public class PushBackbeamPlugin extends CordovaPlugin {
 			if (ACTION_SUSCRIBE_TO_CHANEL.equals(action)) {
 				JSONObject message = args.getJSONObject(0);
 				String chanelUser = message.optString("chanel");
-				final String chanel_user = "user_"+chanelUser;
-				System.out.println("This is the chanel_user: "+chanel_user);
 				cordova.getThreadPool().execute(new Runnable() {
 					public void run(){
 						
@@ -29,7 +27,7 @@ public class PushBackbeamPlugin extends CordovaPlugin {
 							public void failure(BackbeamException exception) {
 								System.out.println("subscription failure "+exception);
 							}
-						}, chanel_user);
+						}, chanelUser);
 					 
 						callbackContext.success();
 					}
@@ -38,8 +36,6 @@ public class PushBackbeamPlugin extends CordovaPlugin {
 			} else if(ACTION_UNSUSCRIBE_FROM_CHANEL.equals(action)){
 				JSONObject message = args.getJSONObject(0);
 				String chanelUser = message.optString("chanel");
-				final String chanel_user = "user_"+chanelUser;
-				System.out.println("This is the chanel_user: "+chanel_user);
 				cordova.getThreadPool().execute(new Runnable() {
 					public void run(){
 						
@@ -50,7 +46,7 @@ public class PushBackbeamPlugin extends CordovaPlugin {
 							public void failure(BackbeamException exception) {
 								System.out.println("unsubscription failure "+exception);
 							}
-						}, chanel_user);
+						}, chanelUser);
 					 
 						callbackContext.success();
 					}
