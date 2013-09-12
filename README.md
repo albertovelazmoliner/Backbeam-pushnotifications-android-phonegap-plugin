@@ -18,7 +18,7 @@ javascript: http://backbeam.io/documentation-javascript
 
 Android: http://backbeam.io/documentation-android
 
-You must include the backbeam setup and push notifications methods in method: public void onStart()
+You must include the backbeam setup and push notifications methods in method: public void onStart() in the class who extends from DroidGap (your main class). The push notification managment is up to you.
 	
 Phonegap:
 
@@ -59,16 +59,37 @@ In your Phonegap project:
 	    </application>
 	</manifest>
 	
-If you want to get internet connection don't forget to change the line in file in your phonegap project /platforms/android/res/xml/config.xml
+If you want to get internet connection don't forget to change this line in your phonegap project file /platforms/android/res/xml/config.xml
 
-	Default:<access origin="127.0.0.1*" />
-	Your change:<access origin="*" />
+	Default:		<access origin="127.0.0.1*" />
+	Your change:	<access origin="*" />
 	
-	And in this file you must add our plugin:
+And in this file you must add our plugin:
+	
 	<feature name="PushBackbeamPlugin">
   		<param name="android-package" value="com.example.hello.PushBackbeamPlugin" /><!--Your package name-->
 	</feature>
+
+Add the PushBackbeamPlugin.java to the project in the package you have selected in /platforms/android/res/xml/config.xml <feature name="PushBackbeamPlugin"> ...	</feature>
+
+Add the pushBackbeam.js to your phonegap project /platforms/android/assets/www/js/
+
+You have to add:
 	
+	<script type="text/javascript" src="js/pushBackbeamPlugin.js"></script>
+	
+just before this line in /platforms/android/assets/www/index.html :
+
+	<script type="text/javascript" src="js/index.js"></script>
+	
+And you can subscribe and unsubcribe your push notificacions to the desire chanel:
+
+	pushBackbeamPlugin.subscribeDeviceToChannelsBackbeam('your-chanel');
+	pushBackbeamPlugin.unsubscribeDeviceFromChannelsBackbeam('your-chanel');
+	
+
+	
+
 
 
 
